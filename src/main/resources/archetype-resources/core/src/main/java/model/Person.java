@@ -22,9 +22,9 @@ public class Person extends BaseObject{
 	 */
 	@Id
 	// create new sequence for each table
-	// @GeneratedValue(strategy = GenerationType.AUTO)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PersonSequence")
-	@SequenceGenerator(name = "PersonSequence", sequenceName = "PERSON_SEQ", allocationSize = 5)
+	/@GeneratedValue(strategy = GenerationType.AUTO)
+	// @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PersonSequence")
+	// @SequenceGenerator(name = "PersonSequence", sequenceName = "PERSON_SEQ", allocationSize = 5)
 	@Column(name="ID")
 	public Long getId() {
 		return id;
