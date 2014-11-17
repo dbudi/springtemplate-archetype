@@ -8,25 +8,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="TEMPLATE_PERSON")
 public class Person extends BaseObject{
-	private Long id;
-	@NotNull(message="cannot be null")
-	@Size(min=2, max=30)
-	private String firstName;
-	@NotNull
-	@Size(min=2, max=30)
+	private Long id;	
+	private String firstName;	
 	private String lastName;
 	/**
 	 * @return the id
 	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	// create new sequence for each table
+	// @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PersonSequence")
+	@SequenceGenerator(name = "PersonSequence", sequenceName = "PERSON_SEQ", allocationSize = 5)
 	@Column(name="ID")
 	public Long getId() {
 		return id;

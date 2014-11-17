@@ -8,9 +8,9 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 
     <persistence-unit name="ApplicationEntityManager" transaction-type="JTA">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>id.co.quadras.template.model.User</class>
-        <class>id.co.quadras.template.model.Role</class>
-	<class>id.co.quadras.template.model.Person</class>
+        <class>${package}.model.User</class>
+        <class>${package}.model.Role</class>
+	<class>${package}.model.Person</class>
         
         <!-- 
         Adding more <class>f.q.c.Name</class> elements here is not required.  
